@@ -1,0 +1,195 @@
+<!-- Slider  -->
+<div class="timer-product-carousel-area">
+  <div class="container">
+    <div class="section-padding">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title"><h2>Sale Off</h2></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="product-carousel">
+          <% @products.each do |product| %>
+            <% product.images.limit(1).each do |image|%>
+              <div class="col-md-3">
+                <!--item 1 start-->
+                <div class="single-product-item">
+                  <div class="sale-product-label"><span>sale</span></div>
+                  <div class="single-product clearfix">
+                    <%= link_to product_detail_path(product.id), method: :get do %>
+                      <span class="image-home">
+                        <%= image_tag image.img.url(:img_540x728) %>
+                      </span>
+                      <div class="timer">
+                        <div data-countdown="2022/01/01" class="timer-grid"></div>
+                      </div>
+                    <% end %>
+                  </div>
+                  <h2 class="single-product-name"><a href="#">Aliquam consequat</a></h2>
+                  <div class="price-box">
+                    <p class="old-price">
+                      <span class="price">$999.00</span>
+                    </p>
+                    <p class="special-price">
+                      <span class="price">$944.00</span>
+                    </p>                      
+                  </div>
+                </div><!--end of item 1-->
+              </div>
+            <% end %><!--end of col-md-3-->
+          <% end %>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+<div class="banner-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8 hidden-xs">
+        <div class="banner-box">
+          <a href="#">
+            <img src="/assets/banner/6.jpg" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="banner-box">
+          <a href="#">
+            <img src="/assets/banner/7.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="product-area-home-three">
+  <div class="container">
+    <div class="section-top-padding"> 
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title"><h2>New Products</h2></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="product">
+          <% @products.each do |product| %>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+              <div class="single-product-item">
+                <div class="new-product-label"><span>new</span></div>
+                <div class="single-product clearfix">
+                  <%= link_to product_detail_path(product.id), method: :get do %>
+                    <span class="product-image">
+                      <%= image_tag image_url(product.images, "main") %>
+                    </span>
+                    <span class="product-image hover-image">
+                      <img src="/assets/product/8.jpg" class="image_160x215" alt="" class="image_160x215">
+                    </span>
+                  <% end %>
+                  <div class="button-actions clearfix"> 
+                    <%= button_to line_items_path(line_item:{product_id: product}), name: "line_item[]", class: "button add-to-cart", remote: true do %>
+                      <span><i class="fa fa-shopping-cart"></i></span>
+                    <% end %>
+                    <ul class="add-to-links">
+                      <li class="quickview">
+                        <%= link_to product_show_path(id: product.id), method: :get, remote: true, class: "btn-quickview modal-view" do %>
+                          <i class="fa fa-search-plus"></i>
+                        <% end %>
+                      </li>
+                      <li>
+                        <a class="link-wishlist" href="wishlist.html">
+                          <i class="fa fa-heart"></i>
+                        </a>
+                      </li>                                                         <li>
+                        <a class="link-compare" href="#">
+                          <i class="fa fa-retweet"></i>
+                        </a>
+                      </li>                       
+                    </ul>
+                  </div>
+                </div>
+                <h2 class="single-product-name"><a href="#">Fusce aliquam</a></h2>
+                <div class="price-box">
+                  <p class="special-price">
+                    <span class="price">$123.00</span>
+                  </p>                      
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>      
+  </div>
+</div>
+<div class="blog-area">
+  <div class="container">
+    <div class="section-padding">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title"><h2>From the blog</h2></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="blog-carousel">
+          <div class="col-md-4">
+            <div class="banner-box">
+              <a href="#" class="image-blog"><img src="/assets/blog/1.jpg" alt=""></a>
+              <div class="single-blog">
+                <span class="date-time">
+                  <span class="days">18</span>
+                  <span class="months">Feb</span>
+                </span>
+                <a class="blog-title" href="blog-details.html"><span>voluptatibus maiores aut</span></a>
+                <p class="author">By BootExperts<span> ( 0 comments )</span></p>
+                <p class="no-margin">Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores aut find fault with...</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-4">
+            <div class="banner-box">
+              <a href="#" class="image-blog"><img src="/assets/blog/2.jpg" alt=""></a>
+              <div class="single-blog">
+                <span class="date-time">
+                  <span class="days">09</span>
+                  <span class="months">Jan</span>
+                </span>
+                <a class="blog-title" href="blog-details.html"><span>Beguiled  and demoralized</span></a>
+                <p class="author">By BootExperts<span> ( 0 comments )</span></p>
+                <p class="no-margin">Laboriosam ipsa temporibus magni assumenda vitae expedita incidunt, aperiam explicabo dignissimos...</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-4">
+            <div class="banner-box">
+              <a href="#" class="image-blog"><img src="/assets/blog/3.jpg" alt=""></a>
+              <div class="single-blog">
+                <span class="date-time">
+                  <span class="days">01</span>
+                  <span class="months">Mar</span>
+                </span>
+                <a class="blog-title" href="blog-details.html"><span>Lorem ipsum adipisicing </span></a>
+                <p class="author">By BootExperts<span> ( 0 comments )</span></p>
+                <p class="no-margin">Consectetur adipisicing elit. Nihil repellat impedit deleniti harum repellendus nobis dolore fuga....</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-4">
+            <div class="banner-box">
+              <a href="#" class="image-blog"><img src="/assets/blog/1.jpg" alt=""></a>
+              <div class="single-blog">
+                <span class="date-time">
+                  <span class="days">28</span>
+                  <span class="months">Jan</span>
+                </span>
+                <a class="blog-title" href="blog-details.html"><span>Repreherit labore totam </span></a>
+                <p class="author">By BootExperts<span> ( 0 comments )</span></p>
+                <p class="no-margin">In officia cumque ipsam neque ex non beatae, fugit quo qui error. Consectetur, quibusdam quidem fuga possimus.....</p>
+              </div>
+            </div>    
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
